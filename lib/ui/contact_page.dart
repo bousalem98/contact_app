@@ -34,12 +34,13 @@ class ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(_editedContact?.name ?? 'Contact name'),
+          title: Text(_editedContact?.name ?? 'Add contact'),
           backgroundColor: Colors.red,
           centerTitle: true),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (_editedContact?.name != null && _editedContact!.name!.isNotEmpty) {
+          if (_editedContact?.name != null &&
+              _editedContact!.name!.isNotEmpty) {
             Navigator.pop(context, _editedContact);
           } else {
             FocusScope.of(context).requestFocus(_nameFocus);
@@ -83,7 +84,7 @@ class ContactPageState extends State<ContactPage> {
             ),
             TextField(
               controller: _phoneController,
-              decoration: const InputDecoration(labelText: 'Telefone'),
+              decoration: const InputDecoration(labelText: 'Phone Number'),
               onChanged: (text) {
                 _editedContact!.phone = text;
               },
